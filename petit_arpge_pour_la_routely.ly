@@ -3,6 +3,8 @@
   composer = "Christophe Thiebaud"
 }
 
+#(define RH rightHandFinger)
+
 \markup {
   \vspace #1
 }
@@ -65,16 +67,16 @@
 
     \bar ".|:" 
 
-    \repeat percent 2 { e16-1 g' e-2 b' g  e' 
-    b e g, b fis-4 g 
-    b e g, b fis g  |
+    \repeat percent 2 { e16-1\RH #1 g'\RH #2 e-2\RH #1 b'\RH #3 g\RH #2  e'\RH #4 
+    b\RH #3 e\RH #4 g,\RH #2 b\RH #3 fis-4\RH #1 g\RH #2
+    b\RH #3 e\RH #4 g,\RH #2 b\RH #3 fis-4\RH #1 g\RH #2 |
     }
 
     \break
 
     \repeat percent 2 { a, g' e-2 c'-1 g  e' 
     c e g, c fis,-4 g 
-    c e g, c fis, g  |
+    c e g, c fis,-4 g  |
     }
 
     \break
