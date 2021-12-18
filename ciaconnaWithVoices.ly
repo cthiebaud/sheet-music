@@ -8,7 +8,7 @@ vFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
 \layout {
   \context {
     \Score
-    \omit BarNumber
+    % \omit BarNumber
   }
 }
 
@@ -19,6 +19,9 @@ vFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
 \fixed c' {
   \time 3/4
   \key d \minor
+
+  \accidentalStyle forget
+
   | %  1
   \newSpacingSection
   \override Score.SpacingSpanner.spacing-increment = #7
@@ -89,6 +92,90 @@ vFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
     }
   >>
   | %  3
+  \break
+  <<
+    \new Voice  {
+      \voiceOne
+      f'8. s16 s2 | 
+      e'8 s8 e'8 s4. |
+      e'8 r d'8. f'16 e'8. d'16 |
+      d'8 r cis' r r r16 a'
+    }
+    \new Voice {
+      \voiceTwo
+      s2. |
+      d8 s8 cis8 s8 s4 |
+      d8 r8 bes,8 r8 r8 r16 g, |
+      a,8 r8 r4 r8 r16 a,
+    }
+    \new Voice {
+      \voiceThree
+      d'8. s16 s2 |
+      bes8 s8 a8 s4. |
+      a8 s s2 |
+      s2 s8 s16 cis'
+    }
+    \new Voice {
+      \vFive
+      d8. e16 f8. g32 a bes8. a16 |
+      g8. f16 g8. bes16 a8. g16 |
+      f8. e16 f8. a16 g8. f16 |
+      e8. d16 e8. g16 f8. e16 
+    }
+  >>
+  | %  4
+  \break
+  <<
+    \new Voice  {
+      \voiceOne
+      f'8. s16 s2 | 
+      e'8 s8 e'8 s4. |
+      e'8 r d'8. f'16 e'8. cis'16 |
+      d'8. e'16 d'4 (cis'8.) d'16
+    }
+    \new Voice {
+      \voiceTwo
+      s2. |
+      d8 s8 cis8 s8 s4 |
+      d8 r8 bes,8 r8 r8 r16 bes, |
+      a,8. g,16 a,2
+    }
+    \new Voice {
+      \voiceThree
+      d'8. s16 s2 |
+      bes8 s8 a8 s4. |
+      a8 s s2 |
+      s2.
+    }
+    \new Voice {
+      \vFive
+      d8. e16 f8. g32 a bes8. a16 |
+      g8. f16 g8. bes16 a8. g16 |
+      f8. e16 f8. a16 g8. e16 |
+      f8. g16 e2 
+    }
+  >>
+  | %  5
+  \break
+  <<
+    \new Voice  {
+      \voiceOne
+      d'8
+    }
+    \new Voice {
+      \voiceTwo
+      d8
+    }
+    \new Voice {
+      \voiceThree
+      s8
+    }
+    \new Voice {
+      \vFive
+      \once \override NoteColumn.force-hshift = 0 d8
+    }
+  >>
+
   \break
   <<
     \new Voice  {
