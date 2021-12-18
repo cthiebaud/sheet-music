@@ -151,8 +151,8 @@ vFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
       \vFive
       d8. e16 f8. g32 a bes8. a16 |
       g8. f16 g8. bes16 a8. g16 |
-      f8. e16 f8. a16 g8. e16 |
-      f8. g16 e2 
+      f8. e16 \override Beam.positions = #'(0.4 . 1.2) f8. a16 \override Beam.positions = #'(0.4 . 0) g8. e16 |
+      \override Beam.positions = #'(0.4 . 0.7) f8. g16 e2 
     }
   >>
   | %  5
