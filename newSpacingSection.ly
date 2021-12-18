@@ -9,7 +9,13 @@
   \context {
       \Score
       \omit BarNumber
-    }  
+    }
+  \context {
+      \Staff
+      \override KeyCancellation.break-visibility = #all-invisible
+      \override TimeSignature.break-visibility = #end-of-line-invisible
+
+    }
 }
 
 sameStuff = {
@@ -40,10 +46,7 @@ sameStuff = {
 
 \relative c' {
 
-  \set Staff.explicitKeySignatureVisibility = #begin-of-line-visible
-  \override Staff.KeyCancellation.break-visibility = #all-invisible
-  \override Staff.TimeSignature.break-visibility = #end-of-line-invisible
-
+  
   \time 3/4
   \key d \minor
 
