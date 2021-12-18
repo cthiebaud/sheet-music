@@ -47,16 +47,18 @@ vFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
     }
     \new Voice {
       \voiceThree
+      \override NoteColumn.force-hshift = 0.3 
       f2 |
-      bes4 a2 |
-      a4 s2 |
+      bes4  a2 |
+      a4 f2 |
       g4 f s
     }
     \new Voice {
       \vFive
+      \override NoteColumn.force-hshift = 0.6 
       s2 |
       g4 g2 |
-      f4 f2 |
+      f4 s2 |
       s2.
     }
   >>
