@@ -6,6 +6,10 @@
 
 \layout {
   indent = 0.0
+  \context {
+      \Score
+      \omit BarNumber
+    }  
 }
 
 sameStuff = {
@@ -45,20 +49,22 @@ sameStuff = {
 
   \accidentalStyle forget
 
-  | % 1
   \mark "\partial 2"
+  % 
   \partial 2
   \sameStuff
   \break
   \time 3/4
-  | % 1
+  
   \mark "s4"
+  %
   s4
   \sameStuff
   \break
   \time 3/4
-  | % 1
+  
   \mark "s4 with \\newSpacingSection"
+  %
   \newSpacingSection
   \override Score.SpacingSpanner.spacing-increment = #6.5
   \override Score.SpacingSpanner.shortest-duration-space = #1
