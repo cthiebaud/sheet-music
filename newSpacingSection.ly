@@ -7,15 +7,15 @@
 \layout {
   indent = 0.0
   \context {
-      \Score
-      \omit BarNumber
-    }
+    \Score
+    \omit BarNumber
+  }
   \context {
-      \Staff
-      \override KeyCancellation.break-visibility = #all-invisible
-      \override TimeSignature.break-visibility = #end-of-line-invisible
+    \Staff
+    \override KeyCancellation.break-visibility = #all-invisible
+    \override TimeSignature.break-visibility = #end-of-line-invisible
 
-    }
+  }
 }
 
 sameStuff = {
@@ -46,26 +46,26 @@ sameStuff = {
 
 \relative c' {
 
-  
+
   \time 3/4
   \key d \minor
 
   \accidentalStyle forget
 
   \mark "\partial 2"
-  % 
+  %
   \partial 2
   \sameStuff
   \break
   \time 3/4
-  
+
   \mark "s4"
   %
   s4
   \sameStuff
   \break
   \time 3/4
-  
+
   \mark "s4 with \\newSpacingSection"
   %
   \newSpacingSection
