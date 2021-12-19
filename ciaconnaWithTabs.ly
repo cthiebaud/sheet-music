@@ -3,9 +3,14 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
 \layout {
   indent = 0.0
   \context {
+    \Staff
+    \remove String_number_engraver
+  }
+  \context {
     \Score
     barNumberVisibility = #all-bar-numbers-visible
     \override BarNumber.break-visibility = #'#(#t #t #t)
+    \remove "System_start_delimiter_engraver" 
   }
 }
 
@@ -25,7 +30,7 @@ mynotes = {
     <<
       { e'4 e'4. e'8 }
       \\
-      { < bes g d >4 < a g cis >2 }
+      { < bes g d >4 < a\4 g cis >2 }
     >>
     |
     % 3
@@ -44,13 +49,15 @@ mynotes = {
   }
 }
 
-<<
-  \new Staff {
-    \clef treble
-    \mynotes
-  }
-  \new TabStaff {
-    \set TabStaff.stringTunings = #custom-tuning
-    \mynotes
-  }
->>
+
+  <<
+    \new Staff {
+      \clef treble
+      \mynotes
+    }
+    \new TabStaff {
+      \set TabStaff.stringTunings = #custom-tuning
+      \mynotes
+    }
+  >>
+
