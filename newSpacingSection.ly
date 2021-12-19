@@ -90,7 +90,7 @@ remainingMeasures = {
     \time 3/4
     \key d \minor
 
-    \mark "s4 with zero length spacing section"
+    \mark "s4 with spacing section tweak"
     % % % % % % % % % % % % % % % % % % % % %
     \newSpacingSection
     \override Score.SpacingSpanner.spacing-increment = #6.5
@@ -110,7 +110,7 @@ remainingMeasures = {
     \time 3/4
     \key d \minor
 
-    \mark "first measure length = 2/4"
+    \mark "∅ with first measure length = 2/4"
     % % % % % % % % % % % % % % % % % % % % %
     \set Timing.measureLength = #(ly:make-moment 1/2)
     \firstMeasure
