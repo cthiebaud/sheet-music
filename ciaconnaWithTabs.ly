@@ -11,6 +11,7 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
     \TabStaff
     \consists "Fingering_engraver"
     \consists "New_fingering_engraver"
+    \override StringNumber.stencil = ##f
     fingeringOrientations = #'(left left left)
     strokeFingerOrientations = #'(right right right)
   }
