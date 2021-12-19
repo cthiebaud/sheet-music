@@ -3,14 +3,21 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
 \layout {
   indent = 0.0
   \context {
-    \Staff
-    \remove String_number_engraver
+    \Score
+    \override BarNumber.break-visibility = #'#(#t #t #t)
+    barNumberVisibility = #all-bar-numbers-visible
   }
   \context {
-    \Score
-    barNumberVisibility = #all-bar-numbers-visible
-    \override BarNumber.break-visibility = #'#(#t #t #t)
-    \remove "System_start_delimiter_engraver" 
+    \TabStaff
+    % \consists "Fingering_engraver"
+    \consists "New_fingering_engraver"
+    fingeringOrientations = #'(left left left)
+  }
+  \context {
+    \Voice
+    % took me forever to track this down
+    \remove "Fingering_engraver"
+    \remove "New_fingering_engraver"
   }
 }
 
@@ -21,16 +28,16 @@ mynotes = {
     \bar ""
     s4
     <<
-      { a4. a8 }
+      { a4.-1\rightHandFinger #3 a8 }
       \\
-      { < f d, >2 }
+      { < f-2\rightHandFinger #2 d,-0\rightHandFinger #1 >2 }
     >>
     |
     % 2
     <<
       { e'4 e'4. e'8 }
       \\
-      { < bes g d >4 < a\4 g cis >2 }
+      { < bes g d >4 < a g cis >2 }
     >>
     |
     % 3
@@ -49,15 +56,13 @@ mynotes = {
   }
 }
 
-
-  <<
-    \new Staff {
-      \clef treble
-      \mynotes
-    }
-    \new TabStaff {
-      \set TabStaff.stringTunings = #custom-tuning
-      \mynotes
-    }
-  >>
-
+<<
+  \new Staff {
+    \clef treble
+    \mynotes
+  }
+  \new TabStaff {
+    \set TabStaff.stringTunings = #custom-tuning
+    \mynotes
+  }
+>>
