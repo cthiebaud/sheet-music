@@ -6,8 +6,7 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
   indent = 0.0
   \context {
     \Score
-    \override BarNumber.break-visibility = #'#(#f #f #f)
-    barNumberVisibility = #all-bar-numbers-visible
+    \override SystemStartBar.stencil = ##f
   }
   \context {
     \TabStaff
@@ -86,7 +85,6 @@ mynotes = {
   \new TabStaff {
     \set TabStaff.stringTunings = #custom-tuning
     \clef moderntab
-    \set fingeringOrientations = #'(left left left)
     \mynotes
   }
 >>
