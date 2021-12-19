@@ -5,7 +5,7 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
   \context {
     \Score
     barNumberVisibility = #all-bar-numbers-visible
-      \override BarNumber.break-visibility = #'#(#t #t #t)
+    \override BarNumber.break-visibility = #'#(#t #t #t)
   }
 }
 
@@ -37,9 +37,9 @@ mynotes = {
     |
     % 4
     <<
-      { bes4 a g16 f( e f) }
+      { bes4 a g16 f _\( e f\) }
       \\
-      { < g g, >4 < f a, > cis }
+      { < g, g >4 < f a, > cis }
     >>
   }
 }
