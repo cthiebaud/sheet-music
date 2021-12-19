@@ -8,23 +8,19 @@
   indent = 0.0
   \context {
     \Score
-    \omit BarNumber
-  }
-  \context {
-    \Staff
-    \override KeyCancellation.break-visibility = #all-invisible
-    \override TimeSignature.break-visibility = #end-of-line-invisible
-
+    \override BarNumber.break-visibility = ##(#t #t #t)
   }
 }
 
-sameStuff = {
+firstMeasure = {
   <<
     { a'4. a8 }
     \\
     { < f d >2 }
   >>
   | % 2
+}
+remainingMeasures = {
   <<
     { e'4 e4. e8 }
     \\
@@ -44,36 +40,84 @@ sameStuff = {
   >>
 }
 
-\relative c' {
+\new Score {
+  \relative c' {
+    \time 3/4
+    \key d \minor
 
+    \mark "\partial"
+    % % % % % % % % % % % % % % % % % % % % %
+    \partial 2
+    \firstMeasure
+    \remainingMeasures
+    % % % % % % % % % % % % % % % % % % % % %
+  }
+}
 
-  \time 3/4
-  \key d \minor
+\new Score {
+  \relative c' {
+    \time 3/4
+    \key d \minor
 
-  \accidentalStyle forget
+    \mark "\partial with current bar number = 2"
+    % % % % % % % % % % % % % % % % % % % % %
+    \partial 2
+    \set Score.currentBarNumber = #2
+    \firstMeasure
+    \remainingMeasures
+    % % % % % % % % % % % % % % % % % % % % %
+  }
+}
 
-  \mark "\partial 2"
-  %
-  \partial 2
-  \sameStuff
-  \break
-  \time 3/4
+\new Score {
 
-  \mark "s4"
-  %
-  s4
-  \sameStuff
-  \break
-  \time 3/4
+  \relative c' {
+    \break
+    \time 3/4
+    \key d \minor
 
-  \mark "s4 with \\newSpacingSection"
-  %
-  \newSpacingSection
-  \override Score.SpacingSpanner.spacing-increment = #6.5
-  \override Score.SpacingSpanner.shortest-duration-space = #1
-  s4
-  \newSpacingSection
-  \revert Score.SpacingSpanner.spacing-increment
-  \revert Score.SpacingSpanner.shortest-duration-space
-  \sameStuff
+    \mark "s4"
+    % % % % % % % % % % % % % % % % % % % % %
+    s4
+    \firstMeasure
+    \remainingMeasures
+    % % % % % % % % % % % % % % % % % % % % %
+  }
+}
+
+\new Score {
+  \relative c' {
+    \time 3/4
+    \key d \minor
+
+    \mark "s4 with zero length spacing section"
+    % % % % % % % % % % % % % % % % % % % % %
+    \newSpacingSection
+    \override Score.SpacingSpanner.spacing-increment = #6.5
+    \override Score.SpacingSpanner.shortest-duration-space = #1
+    s4
+    \newSpacingSection
+    \revert Score.SpacingSpanner.spacing-increment
+    \revert Score.SpacingSpanner.shortest-duration-space
+    \firstMeasure
+    \remainingMeasures
+    % % % % % % % % % % % % % % % % % % % % %
+  }
+}
+
+\new Score {
+  \relative c' {
+    \time 3/4
+    \key d \minor
+
+    \mark "first measure length = 2/4"
+    % % % % % % % % % % % % % % % % % % % % %
+    \set Timing.measureLength = #(ly:make-moment 1/2)
+    \firstMeasure
+    \unset Timing.measureLength
+    \override Staff.TimeSignature #'stencil = ##f
+    \time 3/4
+    \remainingMeasures
+    % % % % % % % % % % % % % % % % % % % % %
+  }
 }
