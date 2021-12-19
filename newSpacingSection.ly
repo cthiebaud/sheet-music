@@ -5,11 +5,16 @@
 }
 
 \layout {
-  indent = 0.0
+  indent = 3.4\cm
   \context {
     \Score
     \override BarNumber.break-visibility = ##(#t #t #t)
   }
+}
+
+prolegomena = {
+  \time 3/4
+  \key d \minor
 }
 
 firstMeasure = {
@@ -41,11 +46,12 @@ remainingMeasures = {
 }
 
 \new Score {
+  \new Staff \with {
+    instrumentName = \markup \center-column
+    {"partial"}
+  }
   \relative c' {
-    \time 3/4
-    \key d \minor
-
-    \mark "\partial"
+    \prolegomena
     % % % % % % % % % % % % % % % % % % % % %
     \partial 2
     \firstMeasure
@@ -54,12 +60,18 @@ remainingMeasures = {
   }
 }
 
-\new Score {
-  \relative c' {
-    \time 3/4
-    \key d \minor
 
-    \mark "\partial with current bar number = 2"
+
+\new Score {
+  \new Staff \with {
+    instrumentName = \markup \center-column
+    {
+      "partial"
+      \line { \smaller "bar number = 2" }
+    }
+  }
+  \relative c' {
+    \prolegomena
     % % % % % % % % % % % % % % % % % % % % %
     \partial 2
     \set Score.currentBarNumber = #2
@@ -70,13 +82,13 @@ remainingMeasures = {
 }
 
 \new Score {
+  \new Staff \with {
+    instrumentName = \markup \center-column
+    {"s4"}
+  }
 
   \relative c' {
-    \break
-    \time 3/4
-    \key d \minor
-
-    \mark "s4"
+    \prolegomena
     % % % % % % % % % % % % % % % % % % % % %
     s4
     \firstMeasure
@@ -86,11 +98,15 @@ remainingMeasures = {
 }
 
 \new Score {
+  \new Staff \with {
+    instrumentName = \markup \center-column
+    {
+      "s4"
+      \line { \smaller "spacing tweak" }
+    }
+  }
   \relative c' {
-    \time 3/4
-    \key d \minor
-
-    \mark "s4 with spacing section tweak"
+    \prolegomena
     % % % % % % % % % % % % % % % % % % % % %
     \newSpacingSection
     \override Score.SpacingSpanner.spacing-increment = #6.5
@@ -105,12 +121,17 @@ remainingMeasures = {
   }
 }
 
-\new Score {
-  \relative c' {
-    \time 3/4
-    \key d \minor
 
-    \mark "∅ with first measure length = 2/4"
+\new Score {
+  \new Staff \with {
+    instrumentName = \markup \center-column
+    {
+      "∅"
+      \line { \smaller "start with 2/4" }
+    }
+  }
+  \relative c' {
+    \prolegomena
     % % % % % % % % % % % % % % % % % % % % %
     \set Timing.measureLength = #(ly:make-moment 1/2)
     \firstMeasure
