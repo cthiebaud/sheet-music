@@ -23,16 +23,16 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
   }
 }
 
-l.1 = \finger\markup {
+LH.1 = \finger\markup {
   \fontsize #-3 "1"
 }
-l.2 = \finger\markup {
+LH.2 = \finger\markup {
   \fontsize #-3 "2"
 }
-l.3 = \finger\markup {
+LH.3 = \finger\markup {
   \fontsize #-3 "3"
 }
-l.4 = \finger\markup {
+LH.4 = \finger\markup {
   \fontsize #-3 "4"
 }
 
@@ -48,16 +48,16 @@ mynotes = {
     \bar ""
     s4
     <<
-      { <a\l.1\RH.3 >4. a8 }
+      { <a\LH.1\RH.3 >4. a8 }
       \\
-      { < f\l.2\RH.2 d,\RH.1 >2 }
+      { < f\LH.2\RH.2 d,\RH.1 >2 }
     >>
     |
     % 2
     <<
       { e'4 e'4. e'8 }
       \\
-      { < bes\l.1 g\l.4 d\l.3 >4 < a\4\l.4 g cis\l.1 >2 }
+      { < bes\LH.1 g\LH.4 d\LH.3 >4 < a\4\LH.4 g cis\LH.1 >2 }
     >>
     |
     % 3
