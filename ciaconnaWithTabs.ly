@@ -1,3 +1,5 @@
+\version "2.22.1"
+
 custom-tuning = \stringTuning <d a d' g' b' e''>
 
 \layout {
