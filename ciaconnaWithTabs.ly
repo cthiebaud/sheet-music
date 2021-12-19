@@ -9,6 +9,7 @@ custom-tuning = \stringTuning <d a d' g' b' e''>
   }
   \context {
     \TabStaff
+    \consists "Script_column_engraver "
     \consists "Fingering_engraver"
     \consists "New_fingering_engraver"
     \override StringNumber.stencil = ##f
