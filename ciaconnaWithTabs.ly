@@ -2,6 +2,9 @@
 
 custom-tuning = \stringTuning <d a d' g' b' e''>
 
+\paper {
+}
+
 \layout {
   indent = 0.0
   \context {
@@ -83,6 +86,7 @@ mynotes = {
     \mynotes
   }
   \new TabStaff {
+    \override TextScript #'font-family = #'typewriter
     \set TabStaff.stringTunings = #custom-tuning
     \clef moderntab
     \mynotes
